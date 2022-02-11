@@ -5,17 +5,21 @@ interface ChildProps {
 }
 
 export const Child = ({ color, onClick }: ChildProps) => {
-    return <div> {color}
-        <button onClick={onClick}>클릭</button>
-    </div>;
+    return (
+        <div> {color}
+            <button onClick={onClick}>클릭</button>
+        </div>
+    );
 };
 
 export const ChildAsFC: React.FC<ChildProps> = ({ color, onClick, children
 }) => {
-    return <div>
-        {color}
-        {children}
-        <button onClick={onClick}>클릭</button>
+    return (
+        <div>
+            {color}
+            {children}
+            <button onClick={onClick}>클릭</button>
 
-    </div>;
+        </div>
+    );
 };

@@ -2,15 +2,29 @@ import { useState } from "react";
 
 const GuestList: React.FC = () => {
     const [name, setName] = useState('');
-    return <div>
-        <h3>Guest List</h3>
+    const [guests, setGuests] = useState<string[]>([]);
 
-        <input value={name} onChange={(e) => setName(e.target.value)} />
-        <button>Add Guest</button>
+    const onClick = () => {
+        setName('');
+        setGuests([...guests, name]);
+    };
 
-        {/*   <small> (들어갈 부분 들어갈)  </small> */}
+    return (
+        <div>
+            <small>-state/GuestList.tsx 구역-</small>
+            <h3>Guest List</h3>
+            <ul>
+                {guests.map((guest) => (
+                    <li key={guest}>{guest}</li>
+                ))}
+            </ul>
+            <input value={name} onChange={(e) => setName(e.target.value)} />
+            <button onClick={onClick}>Add Guest</button>
 
-    </div>
+            {/*   <small> (들어갈 부분 들어갈)  </small> */}
+
+        </div>
+    );
 }
 
 export default GuestList;
